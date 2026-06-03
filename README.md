@@ -27,6 +27,7 @@ LLM inference in C/C++
 - Vim/Neovim plugin for FIM completions: https://github.com/ggml-org/llama.vim
 - Hugging Face Inference Endpoints now support GGUF out of the box! https://github.com/ggml-org/llama.cpp/discussions/9669
 - Hugging Face GGUF editor: [discussion](https://github.com/ggml-org/llama.cpp/discussions/9268) | [tool](https://huggingface.co/spaces/CISCai/gguf-editor)
+- WebGPU support is now available in the browser, see a blog/demo introducing it [here](https://reeselevine.github.io/llamas-on-the-web/).
 
 ----
 
@@ -142,6 +143,7 @@ Instructions for adding support for new models: [HOWTO-add-model.md](docs/develo
 - [x] [LFM2 models](https://huggingface.co/collections/LiquidAI/lfm2-686d721927015b2ad73eaa38)
 - [x] [Hunyuan models](https://huggingface.co/collections/tencent/hunyuan-dense-model-6890632cda26b19119c9c5e7)
 - [x] [BailingMoeV2 (Ring/Ling 2.0) models](https://huggingface.co/collections/inclusionAI/ling-v2-68bf1dd2fc34c306c1fa6f86)
+- [x] [Mellum models](https://huggingface.co/JetBrains/models?search=mellum)
 
 #### Multimodal
 
@@ -172,6 +174,7 @@ Instructions for adding support for new models: [HOWTO-add-model.md](docs/develo
 - JavaScript/Wasm (works in browser): [tangledgroup/llama-cpp-wasm](https://github.com/tangledgroup/llama-cpp-wasm)
 - Typescript/Wasm (nicer API, available on npm): [ngxson/wllama](https://github.com/ngxson/wllama)
 - Ruby: [yoshoku/llama_cpp.rb](https://github.com/yoshoku/llama_cpp.rb)
+- Ruby: [docusealco/rllama](https://github.com/docusealco/rllama)
 - Rust (more features): [edgenai/llama_cpp-rs](https://github.com/edgenai/llama_cpp-rs)
 - Rust (nicer API): [mdrokz/rust-llama.cpp](https://github.com/mdrokz/rust-llama.cpp)
 - Rust (more direct bindings): [utilityai/llama-cpp-rs](https://github.com/utilityai/llama-cpp-rs)
@@ -279,7 +282,7 @@ Instructions for adding support for new models: [HOWTO-add-model.md](docs/develo
 | [Metal](docs/build.md#metal-build) | Apple Silicon |
 | [BLAS](docs/build.md#blas-build) | All |
 | [BLIS](docs/backend/BLIS.md) | All |
-| [SYCL](docs/backend/SYCL.md) | Intel and Nvidia GPU |
+| [SYCL](docs/backend/SYCL.md) | Intel GPU |
 | [OpenVINO [In Progress]](docs/backend/OPENVINO.md) | Intel CPUs, GPUs, and NPUs |
 | [MUSA](docs/build.md#musa) | Moore Threads GPU |
 | [CUDA](docs/build.md#cuda) | Nvidia GPU |
@@ -289,7 +292,7 @@ Instructions for adding support for new models: [HOWTO-add-model.md](docs/develo
 | [CANN](docs/build.md#cann) | Ascend NPU |
 | [OpenCL](docs/backend/OPENCL.md) | Adreno GPU |
 | [IBM zDNN](docs/backend/zDNN.md) | IBM Z & LinuxONE |
-| [WebGPU [In Progress]](docs/build.md#webgpu) | All |
+| [WebGPU](docs/build.md#webgpu) | All |
 | [RPC](https://github.com/ggml-org/llama.cpp/tree/master/tools/rpc) | All |
 | [Hexagon [In Progress]](docs/backend/snapdragon/README.md) | Snapdragon |
 | [VirtGPU](docs/backend/VirtGPU.md) | VirtGPU APIR |
@@ -529,6 +532,7 @@ To learn more about model quantization, [read this documentation](tools/quantize
 - [How to build](docs/build.md)
 - [Running on Docker](docs/docker.md)
 - [Build on Android](docs/android.md)
+- [Multi-GPU usage](docs/multi-gpu.md)
 - [Performance troubleshooting](docs/development/token_generation_performance_tips.md)
 - [GGML tips & tricks](https://github.com/ggml-org/llama.cpp/wiki/GGML-Tips-&-Tricks)
 
