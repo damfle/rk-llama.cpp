@@ -1346,8 +1346,17 @@ static const char * ggml_backend_rknpu_device_get_description(ggml_backend_dev_t
 
 static void ggml_backend_rknpu_device_get_memory(ggml_backend_dev_t dev, size_t * free, size_t * total) {
     UNUSED(dev);
-    *free = 0;
-    *total = 0;
+    *total = 4LL * 1024 * 1024 * 1024; // 4GB total device memory
+    
+    // Calculate used memory by summing all domain allocations
+    size_t used = 0;
+    {
+        std::lock_guard<std::mutex> lock(g_domain_manager.mutex);
+        for (const auto& pair : g_domain_manager.domain_sizes) {
+            used += pair.second;
+        }
+    }
+    *free = *total > used ? *total - used : 0;
 }
 
 static enum ggml_backend_dev_type ggml_backend_rknpu_device_get_type(ggml_backend_dev_t dev) {
